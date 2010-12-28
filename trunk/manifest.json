@@ -1,0 +1,17 @@
+{
+  "name": "semiFormEnter",
+  "version": "1.1",
+  "description": "This addon will add a button in each text input box in the web page so you can select words to be filled into the text box",
+  "browser_action": {
+    "default_icon": "mini-edit.png",
+    "popup": "popup.html"
+  },
+  "background_page": "background.html",
+  "content_scripts": [
+    {
+      "matches": ["http://*/*"],
+      "css": ["semiForm.css"],
+      "js": ["jquery.min.js", "semiForm.js"]
+    }
+  ]
+}

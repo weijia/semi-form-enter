@@ -1,0 +1,16 @@
+.seperator
+{
+	border-bottom:1px solid #bbb;
+	display:block;
+	padding:0px;
+	margin:0px;
+	height:5px;
+	margin-bottom:5px;
+}
+body{
+  min-width:176px;
+  font-size:11px;
+  font-family:Verdana, Geneva, sans-serif;
+  margin:0px;
+  padding:5px 0px;
+}

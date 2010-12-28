@@ -1,0 +1,45 @@
+﻿<p>Input your quick texts in the following list</p>
+<script src="jquery.min.js" type="text/javascript"></script>
+<link href="semiForm.css" rel="stylesheet" type="text/css">
+<span class="seperator"></span>
+<ul id = "menuItems" contenteditable = "true"  style="margin:0,padding:0">
+</ul>
+<span class="seperator"></span>
+<script type="text/javascript">
+
+
+$(function ()
+  {
+    var menuListStr = null;
+    menuListStr = localStorage["menuListStr"]
+    try {
+      menuList = menuListStr.split('\n');
+    }catch (error) {
+      menuList = ["Input text here"];
+    }
+
+    for(i in menuList)
+    {
+      if(menuList[i] != "")
+      {
+        liItem = $("<li>"+menuList[i]+"</li>");
+        $("#menuItems").append(liItem);
+      }
+    }
+    $("#menuItems").blur(
+      function ()
+      {
+        var menuListStr = "";
+        //update local storage
+        $("li").each(
+          function()
+          {
+            menuListStr += $(this).text()+'\n';
+          }
+        );
+        localStorage["menuListStr"] = menuListStr;
+      }
+    );
+  }
+);
+</script>

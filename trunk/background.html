@@ -1,0 +1,20 @@
+﻿<script type="text/javascript">
+chrome.extension.onRequest.addListener(
+  function(request, sender, sendResponse) {
+    console.log(sender.tab ?
+                "from a content script:" + sender.tab.url :
+                "from the extension");
+    if (request.greeting == "hello")
+    {
+      var menuListStr = localStorage["menuListStr"];
+      try {
+        menuList = menuListStr.split('\n');
+      }catch (error) {
+        menuListStr = "Input text by clicking toolbar icon";
+      }
+      sendResponse({farewell: "goodbye","menuListStr":menuListStr});
+    }
+    else
+      sendResponse({}); // snub them.
+  });
+</script>
